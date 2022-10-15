@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="theme-color" content="#000000">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<link rel="apple-touch-icon" href="img/webapp-icon.png">
+		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+
+		<title>Trophy Tap</title>
+
+		<!-- css -->
+		<link rel="stylesheet" href="css/main.css">
+		<style style="text/css">
+			.container {background: none;}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div id="top-buttons">
+				<div class="two-third">
+					<a href="index.html" id="trophy-btn"><img src="img/icons/back.png"> BACK</a>
+				</div>
+				<div class="one-third last">
+					<div id="trophy-title">SETTINGS</div>
+				</div>
+			</div><!-- end top-buttons -->
+
+			<div class="spacer"></div><!-- END SPACER -->
+
+			<div id="trophy-container" class="center">
+      	<ul id="settings-menu">
+      		<li><a href="#" id="bg-change">Change BG-color</a></li>
+      		<li><a href="mailto:info@anderssonwebb.se?subject=Feedback Trophy Tap">Feedback</a></li>
+      		<li><a href="mailto:info@anderssonwebb.se?subject=Support Trophy Tap">Support</a></li>
+      		<li><a href="#" id="reset">Reset</a></li>
+      		<li><a href="#" id="credits">Credits</a></li>
+      	</ul>
+
+      	<div class="spacer"></div><!-- END SPACER -->
+
+    		<p id="version" class="center">Version: 0.0.4</p>
+
+        <div class="bottom-spacer"></div><!-- END SPACER -->
+
+      </div><!-- end collection -->
+		</div><!-- end container -->
+
+		<!-- js -->
+		<script src="js/jquery-3.4.1.min.js"></script>
+		<script src="js/sweetalert.min.js"></script>
+		<script>
+		  $(document).ready(function() {
+	    	// Fade in wrapper
+      	$('.container').hide();
+      	$('.container').fadeIn(1000);
+
+		    // BG-change button click
+		    $("#bg-change").click(function() {
+		    	swal("Change BG-color", "Under development");
+		    });
+
+		    // Credits button click
+		    $("#credits").click(function() {
+		    	swal("Credits", "© 2022 Andersson Webb");
+		    });
+
+		    // Reset button click
+      	$('#reset').click(function() {
+          swal({
+	          title: "Reset Game?",
+	          text: "Do you really want to reset the game?",
+	          buttons: true,
+	        })
+	        .then((willReset) => {
+	          if (willReset) {
+	            //localStorage.clear();
+	            //sessionStorage.clear();
+	            localStorage.removeItem("tm-counter");
+	          	location.reload();
+	          }
+	        });
+        });
+      });
+		</script>
+	</body>
+</html>

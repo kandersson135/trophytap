@@ -1,0 +1,325 @@
+/* IMPORTING WEBFONTS */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700,800,300');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* RESET
+----------------------------------------------- */
+*, html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, label, fieldset, input, p, blockquote, th, td { margin:0; padding:0; outline:none;}
+fieldset, img { border:0 }
+address, caption, cite, code, dfn, em, strong, th, var { font-style:normal; font-weight:normal }
+ol, ul, li { list-style:none }
+caption, th { text-align:left }
+h1, h2, h3, h4, h5, h6 { font-size:100%; font-weight:normal }
+q:before, q:after { content:''}
+
+strong {font-weight:bold;}
+em {font-style:italic;}
+a img {border:none;}
+
+/* HTML PREDEFINED TAGS
+----------------------------------------------- */
+html, body {height: 100%; overflow:hidden;}
+
+/*
+Bg colors
+
+#e53935
+#A770EF
+#f857a6
+#ff5858
+#ff7e5f
+#40E0D0
+#302b63
+#24243e
+#FC5C7D
+#6A82FB
+#EDE574
+#FFB75E
+*/
+
+body {
+	animation: 90s linear 0s normal none infinite animate;
+	background-color: #000000;
+	background-image: url("../img/misc/checkered-pattern.png");
+	font-family:'Open Sans', sans-serif;
+	font-size:13px;
+	line-height:18px;
+	margin:0 auto;
+	padding:0;
+}
+
+/* HEADINGS */
+h1, h2, h3, h4, h5, h6{color:#666; font-family:'Open Sans', sans-serif; font-weight:300;}
+h1, h2, h3{margin-bottom:10px;}
+h4, h5, h6{margin-bottom:15px;}
+h1 {font-size:30px; line-height:32px;}
+h2 {font-size:28px; line-height:28px;}
+h3 {font-size:20px; line-height:22px;}
+h4 {font-size:16px; line-height:20px;}
+h5 {font-size:14px; line-height:18px;}
+h6 {font-size:11px; line-height:16px;}
+
+/* LINKS */
+a {color:#0099cc; font-weight:normal; text-decoration:none;}
+a:hover {color:#237dac; text-decoration:none;}
+a img {border:none}
+
+/* LISTS, BLOCKQUOTES AND PARAGRAPHS */
+p, ul, ol, blockquote {margin-bottom:10px;}
+body p:last-child{margin-bottom:0;}
+ul {margin:10px 0 20px 0;}
+ol {margin:10px 0 20px 25px;}
+
+/* CLEAR */
+.clear {clear:both; float:none!important;}
+
+/* PAGE STRUCTURE
+----------------------------------------------- */
+/* CONTAINER */
+.container {
+	background: radial-gradient(ellipse at center, rgba(500, 500, 500, 0.1) 0%, rgba(50, 50, 50, 0.1) 80%);
+	height: 100%;
+	padding: 10px;
+	width: auto;
+}
+
+/* PROGRESS */
+#progress {
+	margin-top:20px;
+	width: 100%;
+}
+
+#progress-bar {
+	border:2px solid #fff;
+	box-shadow:3px 3px 0 0 rgba(255,255,255,0.3);
+	height:20px;
+	width: 100%;
+}
+
+#progress-bar-fill {
+	background: #fff;
+	display: block;
+	height: 20px;
+}
+
+/* TOP-BUTTONS */
+#top-buttons {margin-bottom:20px;}
+#trophy-btn {
+	border:2px solid #fff;
+	box-shadow:3px 3px 0 0 rgba(255,255,255,0.3);
+	color:#fff;
+	font-family: 'Space Mono', monospace;
+	font-size:24px;
+	font-weight:700;
+	padding:5px 15px 5px 5px;
+}
+
+#trophy-btn img {height:32px; position:relative; top:7px;}
+#trophy-btn:active {
+	box-shadow: none;
+	left:3px;
+	position:relative;
+	top:3px;
+}
+
+/* COUNT-PROGRESS */
+#count-progress {margin-top:50%;}
+#count-progress h1 {
+	color:#fff;
+	font-family: 'Space Mono', monospace;
+	font-size:92px;
+	font-weight:700;
+	line-height: 90px;
+	user-select: none;
+}
+
+#count-progress h2 {
+	color:#fff;
+	font-family: 'Space Mono', monospace;
+	font-size:18px;
+	font-weight:700;
+	user-select: none;
+}
+
+#display-level,
+#trophy-title {
+	color:#fff;
+	font-family: 'Space Mono', monospace;
+	font-size:16px;
+	font-weight:700;
+	float:right;
+	position: relative;
+	top:40px;
+	right:0;
+}
+
+/* TROPHIES */
+#trophy-container {margin-top:20px;}
+.trophy-title {
+  border-bottom:2px solid #fff;
+  color:#fff;
+	font-family: 'Space Mono', monospace;
+	font-size:16px;
+	font-weight:700;
+	margin-top:20px !important;
+	padding:5px 0;
+}
+.trophy-title:first-child {margin-top:0 !important;}
+.trophy-icon {position:relative; top:2px; width:16px;}
+.trophy-item {
+	border:2px solid #fff;
+	box-shadow:3px 3px 0 0 rgba(255,255,255,0.3);
+  padding:10px 5px;
+}
+.trophy-item p {
+	color:#fff;
+	font-family: 'Space Mono', monospace;
+	font-size:14px;
+	font-weight:700;
+}
+.trophy-item p:first-child {margin-top:0 !important;}
+.trophy-item p:last-child {margin-bottom:5px !important;}
+/* .trophy-item:active {box-shadow:none; left:3px; position:relative; top:3px;} */
+.trophy-item .tool {width:70%; margin:0 auto;}
+
+.tool {height:65px; padding-top:10px;}
+.tool img {height:48px; opacity:0.1;}
+.collected img {opacity:1 !important;}
+
+/* SHAKE ANIMATION */
+.shake {animation: shake 0.3s; animation-iteration-count: 1;}
+
+/* SETTINGS-BTN */
+#settings-btn {position:fixed; bottom:13px; left:10px;}
+#settings-btn a {
+	border:2px solid #fff;
+	box-shadow:3px 3px 0 0 rgba(255,255,255,0.3);
+	display: block;
+	padding:4px 6px;
+	position:relative;
+}
+#settings-btn a img {height:32px;}
+#settings-btn a:active {box-shadow:none; left:3px; position:relative; top:3px;}
+
+/* SETTINGS */
+#settings-menu {margin-top:50px;}
+#settings-menu li a {
+	border:2px solid #fff;
+	box-shadow:3px 3px 0 0 rgba(255,255,255,0.3);
+	color:#fff;
+  display:block;
+  font-family: 'Space Mono', monospace;
+	font-size:22px;
+	font-weight:700;
+	margin:0 auto;
+	margin-bottom:20px;
+	margin-top:20px;
+  padding:15px 0;
+  width:230px;
+}
+
+#settings-menu li a:active {
+	box-shadow:none;
+	left:3px;
+	position:relative;
+	top:3px;
+}
+
+#version {
+	color:#fff;
+	font-family: 'Space Mono', monospace;
+	font-size:14px;
+	margin-top:50px;
+}
+
+/* MODAL BOX */
+.swal-modal {
+  background:#000;
+  border:2px solid #fff;
+	box-shadow:3px 3px 0 0 rgba(255,255,255,0.3);
+  border-radius: 0px;
+}
+
+.swal-title {
+  color:#fff;
+  font-family: 'Space Mono', monospace;
+  font-weight:normal;
+  margin-top:-10px !important;
+}
+
+.swal-text {
+  color:#fff;
+  font-family: 'Space Mono', monospace;
+  font-size:18px;
+}
+
+.swal-button {
+	background:#000;
+  border:2px solid #fff;
+	box-shadow:3px 3px 0 0 rgba(255,255,255,0.3);
+	border-radius:0px;
+  color:#fff;
+  font-family: 'Space Mono', monospace;
+  font-weight:normal;
+  font-size:18px;
+  padding:5px 20px;
+}
+.swal-button:focus {box-shadow:3px 3px 0 0 rgba(255,255,255,0.3);}
+.swal-button:hover {background:#000 !important;}
+.swal-button:active {background:#000; box-shadow:none; left:3px; position:relative; top:3px;}
+
+/* CUSTOM CLASSES
+----------------------------------------------- */
+.right {float:right;}
+.left {float:left;}
+.bold {font-weight:bold;}
+.italic {font-style:italic;}
+.underline {border-bottom:1px solid #d8d8d8; padding-bottom:5px;}
+.center {text-align:center;}
+img.center {display:block; margin-left:auto; margin-right:auto;}
+
+/* META CLASS */
+.meta {color:#999; font-size:11px;}
+.meta a {color:#555; display:block; padding-top:10px;}
+
+.grey {color:#999;}
+
+/* SPACER */
+div.spacer {clear:both; display:block; height:10px;}
+.bottom-spacer {clear:both; display:block; height:30px;}
+
+/* COLUMNS */
+.one-half {width:48%;}
+.one-third {width:30.66%;}
+.two-third {width:65.33%;}
+.one-fourth {width:22%;}
+.three-fourth {width:74%;}
+.one-fifth {width:16.8%;}
+.two-fifth {width:37.6%;}
+.three-fifth {width:58.4%;}
+.four-fifth {width:67.2%;}
+.one-sixth {width:13.33%;}
+.five-sixth {width:82.67%;}
+.one-half, .one-third, .two-third, .three-fourth, .one-fourth, .one-fifth, .two-fifth, .three-fifth, .four-fifth, .one-sixth, .five-sixth {position:relative; margin-right:4%; float:left;}
+.last {margin-right:0 !important; clear:right;}
+
+/* ANIMATE SHAKE */
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+/* ANIMATE BACKGROUND */
+@keyframes animate {
+	from {background-position: bottom left;}
+	to {background-position: top right;}
+}
