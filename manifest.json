@@ -13,10 +13,10 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "https://anderssonwebb.se/projekt/tapmore/index.html",
+  "start_url": "https://kandersson135.github.io/trophytap/index.html",
   "background_color": "#000000",
   "display": "standalone",
-  "scope": "https://anderssonwebb.se/projekt/tapmore/",
+  "scope": "https://kandersson135.github.io/trophytap/",
   "orientation": "portrait",
   "theme_color": "#000000"
 }
