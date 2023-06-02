@@ -26,7 +26,7 @@
 					<a href="index.html" id="trophy-btn"><img src="img/icons/back.png"> BACK</a>
 				</div>
 				<div class="one-third last">
-					<div id="trophy-title">SETTINGS</div>
+					<div id="trophy-title">PRESTIGE</div>
 				</div>
 			</div><!-- end top-buttons -->
 
@@ -34,7 +34,7 @@
 
 			<div id="trophy-container" class="center">
       	<ul id="settings-menu">
-      		<li><a href="#" id="bg-change">Change BG-color</a></li>
+      		<li><a href="#" id="bg-change">Prestige</a></li>
       		<li><a href="mailto:info@anderssonwebb.se?subject=Feedback Trophy Tap">Feedback</a></li>
       		<li><a href="mailto:info@anderssonwebb.se?subject=Support Trophy Tap">Support</a></li>
       		<li><a href="#" id="reset">Reset</a></li>
@@ -43,7 +43,7 @@
 
       	<div class="spacer"></div><!-- END SPACER -->
 
-    		<p id="version" class="center">Version: 0.0.5</p>
+    		<p id="version" class="center">Version: 0.0.4</p>
 
         <div class="bottom-spacer"></div><!-- END SPACER -->
 
@@ -55,18 +55,34 @@
 		<script src="js/sweetalert.min.js"></script>
 		<script>
 		  $(document).ready(function() {
+        // Declare variables
+      	var counter = localStorage.getItem("tm-counter");
+      	var prestigeLevel = 0;
+      	var prestigeScoreThreshold = 1000;
+      	var prestigeMultiplier = 1;
+
 	    	// Fade in wrapper
       	$('.container').hide();
       	$('.container').fadeIn(1000);
 
-		    // BG-change button click
-		    $("#bg-change").click(function() {
-		    	swal("Change BG-color", "Under development");
-		    });
+        // Prestige button click
+      	$('#bg-change').click(function() {
+      		if (counter >= prestigeScoreThreshold) {
+      				counter = Math.floor(counter * prestigeMultiplier);
+      		    prestigeLevel++;
+      		    prestigeScoreThreshold *= 10;
+      		    prestigeMultiplier *= 2;
+              localStorage.setItem("tm-counter", (parseInt(++counter)));
+
+      	    //prestigeBtn.innerText = `Prestige (x${prestigeMultiplier}) - Level ${prestigeLevel} (Score Threshold: ${prestigeScoreThreshold})`;
+      	    //updateScore();
+      	    //checkAchievements();
+      	  }
+      	});
 
 		    // Credits button click
 		    $("#credits").click(function() {
-		    	swal("Credits", "© 2023 Kim Andersson");
+		    	swal("Credits", "© 2022 Andersson Webb");
 		    });
 
 		    // Reset button click

@@ -4,7 +4,7 @@ $(document).ready(function() {
 	var start = 0;
 	var clicks = 0;
 	var frequency = 0;
-	
+
 	// Clickspark
  	clickSpark.setParticleCount(5);
   clickSpark.setParticleImagePath('img/misc/clickspark-square.png');
@@ -13,11 +13,11 @@ $(document).ready(function() {
 	clickSpark.setParticleSize(10);
 	clickSpark.setParticleSpeed(10);
 	clickSpark.setParticleDuration(100);
-	
+
 	// Fade in wrapper
 	$('.container').hide();
 	$('.container').fadeIn(1000);
-  
+
 	// Display current count
 	if (counter === null) {
 		$('.counter').html("0");
@@ -26,14 +26,14 @@ $(document).ready(function() {
 	} else {
 		$('.counter').html(fnum(counter));
 	}
-	
+
 	// Touch start
 	$(document).on('touchstart', function(e) {
 		// Check if user click on any of these buttons
-		if($(e.target).closest("#trophy-btn").length > 0 || $(e.target).closest("#settings-btn a").length > 0) {
+		if($(e.target).closest("#trophy-btn").length > 0 || $(e.target).closest("#settings-btn a").length > 0 || $(e.target).closest("#prestige-btn a").length > 0) {
 			return true;
 		}
-		
+
 		// Write click count to tag
 		if (counter === null) {
 			$('.counter').html("0");
@@ -41,45 +41,45 @@ $(document).ready(function() {
 			$('.counter').html(fnum(parseInt((counter)) +1));
 			localStorage.setItem("tm-counter", (parseInt(++counter)));
 		}
-		
+
 		// Shake animation
 		$('#count-progress').addClass('shake');
 
 		setTimeout(function(){
 			$('#count-progress').removeClass('shake');
 		},300);
-		 
+
 		// Check clicks per second
 		if (!start) {
 			start = new Date();
 		}
 		frequency = ++clicks / (new Date() - start) * 1000;
-		
+
 		if (!frequency.toString().includes("Infinity")) {
 			$('.tps').html(Math.round(frequency * 100) / 100);
 		}
 	});
-	
+
 	// Touch end
 	$(document).on('touchend', function(e) {
 		// Check if user click on any of these buttons
-		if($(e.target).closest("#trophy-btn").length > 0 || $(e.target).closest("#settings-btn a").length > 0) {
+		if($(e.target).closest("#trophy-btn").length > 0 || $(e.target).closest("#settings-btn a").length > 0 || $(e.target).closest("#prestige-btn a").length > 0) {
 			return true;
 		}
-		
+
 		// Clickspark
 		clickSpark.fireParticles($('#spark'));
-		
+
 		// Play pop sound
 		var popSound = new Audio("audio/pop.mp3");
 		popSound.play();
 	});
-	
+
 	// Trophy button click
 	$('#trophy-btn').click(function() {
 	  //window.location = "trophies.html";
 	});
-	
+
 	// Display level
 	window.setInterval(function() {
 		var levels = [0, 1000, 3000, 6000, 10000, 15000, 21000, 28000, 36000, 45000, 55000, 66000, 78000, 91000, 105000, 120000, 136000, 153000, 171000, 190000, 210000, 231000, 253000, 276000, 300000, 325000, 351000, 378000, 406000, 463000];
@@ -89,7 +89,7 @@ $(document).ready(function() {
 		var percentage;
 		var XPmin;
 		var XPmax;
-		
+
 	  if (xp === null) {
 	  	$("#level").text("1");
 	  	$("#progress span").width("0%");
@@ -103,7 +103,7 @@ $(document).ready(function() {
 			    maxXP = levels[i + 1];
 			  }
 			});
-			
+
 			if (xp >= 463000) {
 				$("#display-level").text("MAX LVL");
 				//$("#level").text("30");
@@ -114,35 +114,35 @@ $(document).ready(function() {
 			}
 		}
 	}, 10);
-	
+
 	//Disable right click
 	document.addEventListener("contextmenu", function (e) {
 		e.preventDefault();
 	}, false);
-	
+
 	// Format numbers
 	function fnum(x) {
 	  if (isNaN(x)) return x;
-	
+
 	  if (x < 99999) {
 	    return x;
 	  }
-	
+
 	  if (x < 1000000) {
 	    return Math.round(x / 1000) + "K";
 	  }
 	  if (x < 10000000) {
 	    return (x / 1000000).toFixed(2) + "M";
 	  }
-	
+
 	  if (x < 1000000000) {
 	    return Math.round((x / 1000000)) + "M";
 	  }
-	
+
 	  if (x < 1000000000000) {
 	    return Math.round((x / 1000000000)) + "B";
 	  }
-	
+
 	  return "1T+";
 	}
 });
