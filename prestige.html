@@ -68,10 +68,10 @@
 					$('.presLvl').html(prestigeLevel);
 					$('.presRec').html(prestigeRequirements[prestigeLevel]);
 				} else {
-					$('.presLvl').html("0");
-					$('.presRec').html("10000");
+					//$('.presLvl').html("0");
+					//$('.presRec').html("10000");
 					localStorage.setItem("prestigeLevel", (parseInt("0")));
-					//location.reload();
+					location.reload();
 				}
 
 	    	// Fade in wrapper
