@@ -155,7 +155,7 @@ $(document).ready(function() {
 	  }
 
 	  if (x < 1000000) {
-	    return Math.round(x / 1000).toFixed(2) + "K";
+	    return Math.round(x / 1000) + "K";
 	  }
 	  if (x < 10000000) {
 	    return (x / 1000000).toFixed(2) + "M";
