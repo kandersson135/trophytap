@@ -57,21 +57,21 @@
 				var prestigeRequirements = [3000, 3150, 100000, 350000, 500000, 750000, 1000000, 1250000, 1500000, 2000000];
 
 				// Display current count
-				if (counter === null) {
-					$('.counter').html("0");
-				} else {
+				if (counter !== null) {
 					$('.counter').html(counter);
+				} else {
+					$('.counter').html("0");
 				}
 
 				// Display current prestige level
-				if (prestigeLevel === null) {
+				if (prestigeLevel !== null) {
+					$('.presLvl').html(prestigeLevel);
+					$('.presRec').html(prestigeRequirements[prestigeLevel]);
+				} else {
 					$('.presLvl').html("0");
 					$('.presRec').html("10000");
 					localStorage.setItem("prestigeLevel", (parseInt("0")));
 					//location.reload();
-				} else {
-					$('.presLvl').html(prestigeLevel);
-					$('.presRec').html(prestigeRequirements[prestigeLevel]);
 				}
 
 	    	// Fade in wrapper
@@ -87,6 +87,8 @@
 							localStorage.setItem("prestiveLevel", prestigeLevel);
 			        //console.log("Prestiged to Level", prestigeLevel);
 			        // You may want to perform additional actions when prestiging
+
+							swal("Rebirth", "Rebirthed to Level", prestigeLevel);
 			    }
 					else {
 						swal("Rebirth", "You can't rebirth right now.");
