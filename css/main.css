@@ -165,7 +165,7 @@ ol {margin:10px 0 20px 25px;}
 	padding:5px 0;
 }
 .trophy-title:first-child {margin-top:0 !important;}
-.trophy-icon {position:relative; top:2px; width:16px;}
+.trophy-icon {margin-right: 5px; position:relative; top:2px; width:16px;}
 .trophy-item {
 	border:2px solid #fff;
 	box-shadow:3px 3px 0 0 rgba(255,255,255,0.3);
