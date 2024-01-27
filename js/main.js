@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	// Declare variables
 	var counter = localStorage.getItem("tm-counter");
-	var prestigeLevel = localStorage.getItem("prestiveLevel");
+	var prestigeLevel = localStorage.getItem("prestigeLevel");
 	var start = 0;
 	var clicks = 0;
 	var frequency = 0;
@@ -41,7 +41,7 @@ $(document).ready(function() {
 		if($(e.target).closest("#trophy-btn").length > 0 || $(e.target).closest("#settings-btn a").length > 0 || $(e.target).closest("#prestige-btn a").length > 0) {
 			return true;
 		}
-		
+
 		/*
 		// Write click count to tag
 		if (counter === null) {
