@@ -65,13 +65,16 @@
 
 				// Display current prestige level
 				if (prestigeLevel !== null) {
-					$('.presLvl').html(prestigeLevel);
-					$('.presRec').html(prestigeRequirements[prestigeLevel]);
+				    $('.presLvl').html(prestigeLevel);
+				    $('.presRec').html(prestigeRequirements[prestigeLevel]);
 				} else {
-					//$('.presLvl').html("0");
-					//$('.presRec').html("10000");
-					localStorage.setItem("prestigeLevel", 0);
-					location.reload();
+				    // Check if the page is not already flagged for reload
+				    if (!localStorage.getItem("reloadFlag")) {
+				        // Set initial values and flag for reload
+				        localStorage.setItem("prestigeLevel", "0");
+				        localStorage.setItem("reloadFlag", "true");
+				        location.reload();
+				    }
 				}
 
 	    	// Fade in wrapper
