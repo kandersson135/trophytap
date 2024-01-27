@@ -66,6 +66,8 @@
 				if (prestigeLevel !== null) {
 					$('.presLvl').html(prestigeLevel);
 					$('.presRec').html(prestigeRequirements[prestigeLevel]);
+				} else if (prestigeLevel == 13) {
+					$('.presRec').html("MAX LVL");
 				} else {
 					$('.presLvl').html("0");
 					$('.presRec').html("1000");
