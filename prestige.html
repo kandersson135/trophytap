@@ -89,8 +89,9 @@
 			        //console.log("Prestiged to Level", prestigeLevel);
 			        // You may want to perform additional actions when prestiging
 
-							swal("Rebirth", "Rebirthed to Level " + prestigeLevel);
-							location.reload();
+							swal("Rebirth", "Rebirthed to Level " + prestigeLevel).then(function () {
+								location.reload();
+							});
 			    }
 					else {
 						swal("Rebirth", "You can't rebirth right now.");
