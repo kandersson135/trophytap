@@ -53,7 +53,7 @@
         // Declare variables
       	var counter = localStorage.getItem("tm-counter");
 				var prestigeLevel = localStorage.getItem("prestigeLevel");
-				var prestigeRequirements = [1000, 5000, 10000, 25000, 100000, 750000, 1000000, 1250000, 1500000, 2000000];
+				var prestigeRequirements = [1000, 5000, 10000, 25000, 50000, 75000, 100000, 250000, 500000, 750000, 1000000, 1250000, 1500000, 2000000];
 
 				// Display current count
 				if (counter !== null) {
@@ -78,21 +78,25 @@
       	$('.container').fadeIn(1000);
 
 				$('#prestigeBtn').click(function() {
-					if (counter >= prestigeRequirements[prestigeLevel]) {
-			        // Player can prestige
-			        prestigeLevel++;
-			        counter = 0; // Reset counter after prestiging
-							localStorage.setItem("tm-counter", counter);
-							localStorage.setItem("prestigeLevel", prestigeLevel);
-			        //console.log("Prestiged to Level", prestigeLevel);
-			        // You may want to perform additional actions when prestiging
+					if (prestigeLevel == 13) {
+						swal("Rebirth", "Rebirth is at Max Level.");
+					} else {
+						if (counter >= prestigeRequirements[prestigeLevel]) {
+				        // Player can prestige
+				        prestigeLevel++;
+				        counter = 0; // Reset counter after prestiging
+								localStorage.setItem("tm-counter", counter);
+								localStorage.setItem("prestigeLevel", prestigeLevel);
+				        //console.log("Prestiged to Level", prestigeLevel);
+				        // You may want to perform additional actions when prestiging
 
-							swal("Rebirth", "Rebirthed to Level " + prestigeLevel).then(function () {
-								location.reload();
-							});
-			    }
-					else {
-						swal("Rebirth", "You can't rebirth right now.");
+								swal("Rebirth", "Rebirthed to Level " + prestigeLevel).then(function () {
+									location.reload();
+								});
+				    }
+						else {
+							swal("Rebirth", "You can't rebirth right now.");
+						}
 					}
 				});
 
