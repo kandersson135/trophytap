@@ -180,7 +180,7 @@
           <div class="trophy-item">
             <p>Bat</p>
         	  <div class="tool"><img src="img/icons/bat.png"></div>
-        	  <p id="t16"><img src="img/icons/click.png" class="trophy-icon"> 1250000</p>
+        	  <p id="t16"><img src="img/icons/click.png" class="trophy-icon"> 1.25M</p>
         	</div>
         </div>
 
@@ -188,7 +188,7 @@
           <div class="trophy-item">
             <p>Axolotl</p>
         	  <div class="tool"><img src="img/icons/axolotl.png"></div>
-        	  <p id="t17"><img src="img/icons/click.png" class="trophy-icon"> 1750000</p>
+        	  <p id="t17"><img src="img/icons/click.png" class="trophy-icon"> 1.75M</p>
         	</div>
         </div>
 
@@ -196,7 +196,7 @@
         	<div class="trophy-item">
             <p>Capybara</p>
         	  <div class="tool"><img src="img/icons/capybara.png"></div>
-        	  <p id="t18"><img src="img/icons/click.png" class="trophy-icon"> 2000000</p>
+        	  <p id="t18"><img src="img/icons/click.png" class="trophy-icon"> 5M</p>
         	</div>
         </div>
 
@@ -219,13 +219,34 @@
 
         for (var i = 1; i < 18; i++) {
           taps = ($("#t" + i).text());
-          result = taps.replace(/ /g, "");
+          //result = taps.replace(/ /g, "");
+					taps = parseNumberWithMagnitude(taps);
 
           if (parseInt(counter) >= parseInt(result)) {
             $("#t" + i).text("Collected!");
             $("#t" + i).prev(".tool").addClass("collected");
           }
         }
+
+				function parseNumberWithMagnitude(input) {
+			    const magnitudeMap = {
+			        'K': 1e3,
+			        'M': 1e6,
+			        'B': 1e9,
+			    };
+
+			    const regex = /^(\d*\.?\d+)([KMB])?$/;
+			    const match = input.match(regex);
+
+			    if (match) {
+			        const value = parseFloat(match[1]);
+			        const magnitude = match[2] ? magnitudeMap[match[2]] : 1;
+			        return value * magnitude;
+			    } else {
+			        // Handle invalid input or return NaN as needed
+			        return NaN;
+			    }
+				}
       });
 		</script>
 	</body>
