@@ -57,15 +57,11 @@ $(document).ready(function() {
         counter = 0;
     }
 
-    console.log("Before Click: counter =", counter);
-
     // Calculate clicks based on prestige level
     var clicksToAdd = 1 + (5 * prestigeLevel);
 
     // Update click count (convert to number explicitly)
     counter = Number(counter) + clicksToAdd;
-
-    console.log("After Click: counter =", counter);
 
     $('.counter').html(fnum(counter));
     localStorage.setItem("tm-counter", counter);
