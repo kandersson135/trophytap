@@ -1,6 +1,7 @@
 $(document).ready(function() {
 	// Declare variables
 	var counter = localStorage.getItem("tm-counter");
+	var prestigeLevel = localStorage.getItem("prestiveLevel");
 	var start = 0;
 	var clicks = 0;
 	var frequency = 0;
@@ -27,13 +28,21 @@ $(document).ready(function() {
 		$('.counter').html(fnum(counter));
 	}
 
+	// Get current prestige level
+	if (prestigeLevel === null) {
+		prestigeLevel = 0;
+	} else {
+		prestigeLevel = prestigeLevel;
+	}
+
 	// Touch start
 	$(document).on('touchstart', function(e) {
 		// Check if user click on any of these buttons
 		if($(e.target).closest("#trophy-btn").length > 0 || $(e.target).closest("#settings-btn a").length > 0 || $(e.target).closest("#prestige-btn a").length > 0) {
 			return true;
 		}
-
+		
+		/*
 		// Write click count to tag
 		if (counter === null) {
 			$('.counter').html("0");
@@ -41,6 +50,27 @@ $(document).ready(function() {
 			$('.counter').html(fnum(parseInt((counter)) +1));
 			localStorage.setItem("tm-counter", (parseInt(++counter)));
 		}
+		*/
+
+		// Ensure counter is initialized as a number
+    if (counter === null || isNaN(counter)) {
+        counter = 0;
+    }
+
+    console.log("Before Click: counter =", counter);
+
+    // Calculate clicks based on prestige level
+    var clicksToAdd = 1 + (5 * prestigeLevel);
+
+    // Update click count (convert to number explicitly)
+    counter = Number(counter) + clicksToAdd;
+
+    console.log("After Click: counter =", counter);
+
+    $('.counter').html(fnum(counter));
+    localStorage.setItem("tm-counter", counter);
+
+
 
 		// Shake animation
 		$('#count-progress').addClass('shake');

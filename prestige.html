@@ -26,27 +26,22 @@
 					<a href="index.html" id="trophy-btn"><img src="img/icons/back.png"> BACK</a>
 				</div>
 				<div class="one-third last">
-					<div id="trophy-title">PRESTIGE</div>
+					<div id="trophy-title">REBIRTH</div>
 				</div>
 			</div><!-- end top-buttons -->
 
 			<div class="spacer"></div><!-- END SPACER -->
 
+			<div id="count-progress" class="center">
+				<h1><span class="presLvl">0</span></h1>
+				<h2>Rebirth Level</h2>
+				<h2><span class="counter"></span>/<span class="presRec"></span></h2>
+			</div><!-- end count-progress -->
+
 			<div id="trophy-container" class="center">
       	<ul id="settings-menu">
-      		<li><a href="#" id="bg-change">Prestige</a></li>
-      		<li><a href="mailto:info@anderssonwebb.se?subject=Feedback Trophy Tap">Feedback</a></li>
-      		<li><a href="mailto:info@anderssonwebb.se?subject=Support Trophy Tap">Support</a></li>
-      		<li><a href="#" id="reset">Reset</a></li>
-      		<li><a href="#" id="credits">Credits</a></li>
+      		<li><a href="#" id="prestigeBtn">Rebirth</a></li>
       	</ul>
-
-      	<div class="spacer"></div><!-- END SPACER -->
-
-    		<p id="version" class="center">Version: 0.0.5</p>
-
-        <div class="bottom-spacer"></div><!-- END SPACER -->
-
       </div><!-- end collection -->
 		</div><!-- end container -->
 
@@ -57,14 +52,47 @@
 		  $(document).ready(function() {
         // Declare variables
       	var counter = localStorage.getItem("tm-counter");
-      	var prestigeLevel = 0;
-      	var prestigeScoreThreshold = 1000;
-      	var prestigeMultiplier = 1;
+				var prestigeLevel = localStorage.getItem("prestiveLevel");
+				var prestigeRequirements = [10000, 50000, 100000, 350000, 500000, 750000, 1000000, 1250000, 1500000, 2000000];
+
+				// Display current count
+				if (counter === null) {
+					$('.counter').html("0");
+				} else {
+					$('.counter').html(counter);
+				}
+
+				// Display current prestige level
+				if (prestigeLevel === null) {
+					$('.presLvl').html("0");
+					$('.presRec').html("10000");
+					localStorage.setItem("prestigeLevel", (parseInt("0")));
+					//location.reload();
+				} else {
+					$('.presLvl').html(prestigeLevel);
+					$('.presRec').html(prestigeRequirements[prestigeLevel]);
+				}
 
 	    	// Fade in wrapper
       	$('.container').hide();
       	$('.container').fadeIn(1000);
 
+				$('#prestigeBtn').click(function() {
+					if (counter >= prestigeRequirements[prestigeLevel]) {
+			        // Player can prestige
+			        prestigeLevel++;
+			        counter = 0; // Reset counter after prestiging
+							localStorage.setItem("tm-counter", counter);
+							localStorage.setItem("prestiveLevel", prestigeLevel);
+			        //console.log("Prestiged to Level", prestigeLevel);
+			        // You may want to perform additional actions when prestiging
+			    }
+					else {
+						swal("Rebirth", "You can't rebirth right now.");
+					}
+				});
+
+				/*
         // Prestige button click
       	$('#bg-change').click(function() {
       		if (counter >= prestigeScoreThreshold) {
@@ -79,28 +107,7 @@
       	    //checkAchievements();
       	  }
       	});
-
-		    // Credits button click
-		    $("#credits").click(function() {
-		    	swal("Credits", "© 2022 Andersson Webb");
-		    });
-
-		    // Reset button click
-      	$('#reset').click(function() {
-          swal({
-	          title: "Reset Game?",
-	          text: "Do you really want to reset the game?",
-	          buttons: true,
-	        })
-	        .then((willReset) => {
-	          if (willReset) {
-	            //localStorage.clear();
-	            //sessionStorage.clear();
-	            localStorage.removeItem("tm-counter");
-	          	location.reload();
-	          }
-	        });
-        });
+				*/
       });
 		</script>
 	</body>
