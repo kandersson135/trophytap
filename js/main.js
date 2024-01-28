@@ -58,7 +58,7 @@ $(document).ready(function() {
     }
 
     // Calculate clicks based on prestige level
-    var clicksToAdd = 1 + (5 * prestigeLevel);
+    var clicksToAdd = 1 + (10 * prestigeLevel);
 
     // Update click count (convert to number explicitly)
     counter = Number(counter) + clicksToAdd;
