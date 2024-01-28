@@ -222,8 +222,6 @@
           //result = taps.replace(/ /g, "");
 					result = parseNumberWithMagnitude(taps);
 
-					console.log(taps);
-
           if (parseInt(counter) >= parseInt(result)) {
             $("#t" + i).text("Collected!");
             $("#t" + i).prev(".tool").addClass("collected");
