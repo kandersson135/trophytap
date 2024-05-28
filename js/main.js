@@ -106,6 +106,7 @@ $(document).ready(function() {
 	  //window.location = "trophies.html";
 	});
 
+	/*
 	// Display level
 	window.setInterval(function() {
 		var levels = [0, 1000, 3000, 6000, 10000, 15000, 21000, 28000, 36000, 45000, 55000, 66000, 78000, 91000, 105000, 120000, 136000, 153000, 171000, 190000, 210000, 231000, 253000, 276000, 300000, 325000, 351000, 378000, 406000, 463000, 493000, 524000, 556000, 623000, 658000, 694000, 731000, 769000, 808000, 848000, 889000, 931000, 974000, 1018000];
@@ -140,6 +141,59 @@ $(document).ready(function() {
 			}
 		}
 	}, 10);
+	*/
+
+	// Function to calculate the XP required for a given level
+	function getXP(level) {
+	    if (level <= 1) return 0;
+
+	    let xp = 0;
+	    let difference = 1000; // Initial difference for level 2
+
+	    for (let i = 2; i <= level; i++) {
+	        xp += difference;
+	        difference += 1000; // Increase difference by 1000 for each subsequent level
+	    }
+
+	    return xp;
+	}
+
+	// Display level
+	window.setInterval(function() {
+	    var level = 0;
+	    var xp = parseInt(localStorage.getItem("tm-counter"));
+	    var maxXP;
+	    var percentage;
+	    var XPmin;
+	    var XPmax;
+	    const maxLevel = 100; // Change this value to set the new maximum level
+
+	    if (isNaN(xp)) {
+	        $("#level").text("1");
+	        $("#progress span").width("0%");
+	    } else {
+	        for (let i = 1; i <= maxLevel; i++) {
+	            let currentXP = getXP(i);
+	            let nextXP = getXP(i + 1);
+	            if (xp >= currentXP) {
+	                level = i;
+	                XPmin = currentXP;
+	                XPmax = nextXP;
+	                percentage = 100 * (xp - XPmin) / (XPmax - XPmin);
+	                maxXP = nextXP;
+	            }
+	        }
+
+	        if (xp >= getXP(maxLevel)) {
+	            $("#display-level").text("MAX LVL");
+	            $("#progress-bar-fill").width("100%");
+	        } else {
+	            $("#level").text(level);
+	            $("#progress-bar-fill").width(percentage + "%");
+	        }
+	    }
+	}, 10);
+
 
 	//Disable right click
 	document.addEventListener("contextmenu", function (e) {
