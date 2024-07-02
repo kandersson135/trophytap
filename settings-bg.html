@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-	<head>	
+	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
 		<meta name="theme-color" content="#000000">
@@ -10,8 +10,11 @@
 
 		<link rel="apple-touch-icon" href="img/webapp-icon.png">
 		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
-		
+
 		<title>Tap More</title>
+
+		<!-- json -->
+  	<link rel="manifest" href="manifest.json">
 
 		<!-- css -->
 		<link rel="stylesheet" href="css/main.css">
@@ -29,9 +32,9 @@
 					<div id="trophy-title">Change BG</div>
 				</div>
 			</div><!-- end top-buttons -->
-			
+
 			<div class="spacer"></div><!-- END SPACER -->
-			
+
 			<div id="trophy-container" class="center">
       	<ul id="settings-menu">
       		<li><a href="#" id="bg-change">Change BG-color</a></li>
@@ -40,13 +43,13 @@
       		<li><a href="#" id="reset">Reset</a></li>
       		<li><a href="#" id="credits">Credits</a></li>
       	</ul>
-      	
+
       	<div class="spacer"></div><!-- END SPACER -->
-    	
+
     		<p id="version" class="center">Version: 0.0.1</p>
-        
+
         <div class="bottom-spacer"></div><!-- END SPACER -->
-        
+
       </div><!-- end collection -->
 		</div><!-- end container -->
 
@@ -58,17 +61,17 @@
 	    	// Fade in wrapper
       	$('.container').hide();
       	$('.container').fadeIn(1000);
-		    
+
 		    // BG-change button click
 		    $("#bg-change").click(function() {
 		    	swal("Change BG-color", "Under development");
 		    });
-		    
+
 		    // Credits button click
 		    $("#credits").click(function() {
 		    	swal("Credits", "© 2022 Andersson Webb");
 		    });
-		    
+
 		    // Reset button click
       	$('#reset').click(function() {
           swal({

@@ -1,22 +1,17 @@
 {
-  "short_name": "Trophy Tap",
   "name": "Trophy Tap",
+  "short_name": "Trophy Tap",
+  "description": "Clicker game for mobile",
   "icons": [
     {
-      "src": "img/icons-192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "img/icons-512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "src": "img/webapp-icon.png",
+      "sizes": "500x500",
+      "type": "image/png"
     }
   ],
-  "start_url": "https://kandersson135.github.io/trophytap/index.html",
-  "background_color": "#000000",
+  "start_url": "https://kandersson135.github.io/trophytap/",
   "display": "standalone",
-  "scope": "https://kandersson135.github.io/trophytap/",
   "orientation": "portrait",
+  "background_color": "#000000",
   "theme_color": "#000000"
 }
